@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}PocketIDS | Intrusion Detection System... {% endblock %}
+
+{% block content %}
+<div class="card mt-5">
+    <div class="card-header text-center">
+        <h1>Dangerous IP's Detected</h1>
+    </div>
+    <div class="card-body">
+        <textarea id="dangerous" style="width: 100%; min-height:50vh; overflow-y: auto;"></textarea>
+    </div>
+</div>
+<div class="card mt-5">
+    <div class="card-header text-center">
+        <h1>Dangerous Ports Detected</h1>
+    </div>
+    <div class="card-body">
+        
+    </div>
+</div>
+<script>
+    const el = document.getElementById("dangerous");
+    const ws = new WebSocket("ws://{{url}}:{{port}}/raw_log");
+    ws.onmessage = function(event) {
+        const x = event.data.toString();
+        if (x.includes("Dangerous")){
+            el.textContent += event.data;
+        }
+    }
+</script>
+{% endblock %}

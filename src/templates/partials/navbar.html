@@ -1,0 +1,32 @@
+<nav class="text-white navbar navbar-expand-lg d-flex justify-content-between">
+    <div>
+    <a class="navbar-brand" style="min-width:8vw; margin-left: 1vw;" href="/">
+        <i class="col bi bi-moon-stars-fill"></i>&nbsp;&nbsp;PocketIDS
+    </a>
+    <a href="/settings" class="btn btn-outline-info">Settings</a>
+    <a href="/log" class="btn btn-outline-info">Log</a>
+</div>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="min-width:15vw;">
+        <input type="radio" class="btn-check" name="btnradio" id="darkModeBtn" autocomplete="off" checked
+            onclick="darkMode()">
+        <label class="btn btn-outline-secondary" for="darkModeBtn"><i class="bi bi-brightness-low"></i></label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="lightModeBtn" autocomplete="off"
+            onclick="lightMode()">
+        <label class="btn btn-outline-primary" for="lightModeBtn"><i class="bi bi-brightness-high"></i></label>
+    </div>
+</nav>
+<script>
+    var root = document.getElementById("root")
+    function darkMode() {
+        root.setAttribute("data-bs-theme", "dark")
+    }
+    function lightMode() {
+        root.setAttribute("data-bs-theme", "light")
+    }
+</script>
+<style>
+    .bi {
+        color: #0dcaf0;
+    }
+</style>

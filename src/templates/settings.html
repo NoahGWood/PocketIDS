@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}PocketIDS | Intrusion Detection System... {% endblock %}
+
+{% block content %}
+
+
+<form class="form-control" method="post" action="/settings">
+    <div class="input-group mb-3">
+        <span class="input-group-text">Auto Updates</span>
+        <select class="form-control" name="AUTO_UPDATES" value="{{configs.AUTO_UPDATES}}">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Update Interval</span>
+        <input class="form-control" type="number" name="UPDATE_INTERVAL" value="{{configs.UPDATE_INTERVAL}}">
+        <select class="form-control" name="intervalUnits">
+            <option value="1">Seconds</option>
+            <option value="60">Minutes</option>
+            <option value="3600">Hours</option>
+            <option value="86400">Days</option>
+            <option value="604800">Weeks</option>
+            <option value="2620800">Months</option>
+            <option value="31449600">Years</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Updates URL</span>
+        <input class="form-control" type="url" name="UPDATES_URL" value="{{configs.UPDATES_URL}}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Updates Folder</span>
+        <input class="form-control" type="text" name="UPDATES_FOLDER" value="{{configs.UPDATES_FOLDER}}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Updates Filename</span>
+        <input class="form-control" type="text" name="UPDATES_FILE" value="{{configs.UPDATES_FILE}}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Notify On</span>
+        <select class="form-control" name="NOTIFY_ON" value="{{configs.NOTIFY_ON}}">
+            <option value="critical">Critical</option>
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Enable Server</span>
+        <select class="form-control" name="ENABLE_SERVER" value="{{configs.ENABLE_SERVER}}">
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Server Address</span>
+        <input class="form-control" type="text" name="SERVER_ADDR" value="{{configs.SERVER_ADDR}}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Server Port</span>
+        <input class="form-control" type="text" name="SERVER_PORT" value="{{configs.SERVER_PORT}}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Log Level</span>
+        <select class="form-control" name="LOG_LEVEL" value="{{configs.LOG_LEVEL}}">
+            <option value="10">Debug</option>
+            <option value="20">Info</option>
+            <option value="30">Warn</option>
+            <option value="40">Error</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Log File</span>
+        <input class="form-control" type="text" name="LOG_FILE" value="{{configs.LOG_FILE}}">
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+{% endblock %}

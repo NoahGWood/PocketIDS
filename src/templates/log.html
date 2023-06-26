@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}PocketIDS | Intrusion Detection System... {% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Logs</h1>
+    </div>
+    <div class="card-body">
+        <textarea id="logtext" style="width: 100%; min-height:50vh; overflow-y: auto;"></textarea>
+    </div>
+</div>
+<script>
+    const el = document.getElementById("logtext");
+    const ws = new WebSocket("ws://{{url}}:{{port}}/raw_log");
+    ws.onmessage = function (event) {
+        el.textContent += event.data;
+    }
+</script>
+
+{% endblock %}
